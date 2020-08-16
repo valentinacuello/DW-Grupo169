@@ -12,6 +12,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="login-estilo.css">
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -102,8 +103,46 @@
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
     </footer>
+
+    <!--LOGIN-->
+    <div class="pantalla-login login-hidden" id="pantalla-login">
+      <div class="contenedor">
+        <div class="form-contenedor">
+          <form onsubmit="return submitLogin(event)">
+            <h1>¡Hola!</h1>
+            <div class="input-nombre">
+              <label for=""> Usuario | E-mail</label>
+              <input type="text" type="email" required>   
+              <label>Contraseña</label>
+              <input type="password" required>   
+            </div>
+                  
+            <div class="extras">
+              <div class="texto-recordarme">
+                <input type="checkbox">
+                <label for="" id="label-recordar">Recordarme</label>
+              </div>
+              <div class="texto-olvido">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+              </div>
+            </div>
+      
+            <div class="input-ingresar">
+              <input type="submit" value="Ingresar"><a href="index"></a>
+            </div>
+      
+            <div class="texto-footer">
+              <p>¿No tenés cuenta?</p>
+              <a href="#">¡Registrate acá!</a>
+            </div>    
+          </div>
+          </form>            
+      </div>
+      <div class="fondo-blur"></div>
+    </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

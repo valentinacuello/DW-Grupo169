@@ -44,4 +44,11 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  if(sessionStorage.getItem('logeado') != 'true'){
+    document.getElementById("pantalla-login").classList.remove("login-hidden");
+  }
 });
+
+function ocultarLogin(){
+  document.getElementById("pantalla-login").classList.add("login-hidden");
+}

@@ -4,3 +4,11 @@
 document.addEventListener("DOMContentLoaded", function(e){
 
 });
+
+
+function submitLogin(event){
+    event.preventDefault();
+    ocultarLogin();
+    sessionStorage.setItem('logeado', 'true');
+}
+
