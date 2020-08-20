@@ -145,3 +145,19 @@ a.custom-card:hover {
   display: none;
   
 }
+.icono-usuario{
+  font-size: 21px;
+  color: white;
+  display: inline;
+}
+
+.nombre-usuario{
+  color: white;
+  display: inline;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+.contenedor-usuario a{
+  text-decoration: none;
+}

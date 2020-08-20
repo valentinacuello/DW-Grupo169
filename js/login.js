@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 function submitLogin(event){
     event.preventDefault();
     ocultarLogin();
-    sessionStorage.setItem('logeado', 'true');
+    localStorage.setItem('logeado', 'true');
+
+    var usuario = document.getElementById("inputUsuario").value;
+    localStorage.setItem('nombre', usuario);
+    document.getElementById("nombreUsuario").innerHTML = usuario;
 }
 

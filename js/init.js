@@ -44,11 +44,18 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  if(sessionStorage.getItem('logeado') != 'true'){
-    document.getElementById("pantalla-login").classList.remove("login-hidden");
+  if(localStorage.getItem('logeado') != 'true'){
+    document.getElementById("pantalla-login").classList.remove("login-hidden");    //Esta linea muestra el login 
+  } else {
+    if(localStorage.getItem('nombre') != null){
+      document.getElementById("nombreUsuario").innerHTML = localStorage.getItem('nombre');
+    }
   }
+
 });
 
 function ocultarLogin(){
   document.getElementById("pantalla-login").classList.add("login-hidden");
 }
+
+
