@@ -5,8 +5,8 @@ function showCategoriesList(){
     for(let i = 0; i < currentProductsArray.length; i++){
         let category = currentProductsArray[i];
 
-        if (((minPrice == undefined) || (minPrice != undefined && parseInt(category.cost) >= minPrice)) &&
-            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(category.cost) <= maxPrice)) &&
+        if (((minCost  == undefined) || (minCost  != undefined && parseInt(category.cost) >= minCost )) &&
+            ((maxCost  == undefined) || (maxCost  != undefined && parseInt(category.cost) <= maxCost )) &&
             ((textoBusqueda == undefined) || (category.name.includes(textoBusqueda)) || (category.description.includes(textoBusqueda)))
             )
             {
@@ -40,25 +40,25 @@ function showCategoriesList(){
 
 
 
-const ORDER_ASC_BY_PRICE = "- Precio";
-const ORDER_DESC_BY_PRICE = "+ Precio";
+const ORDER_ASC_BY_COST = "- Precio";
+const ORDER_DESC_BY_COST = "+ Precio";
 const ORDER_BY_PROD_COUNT = "Cant.";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
-var minPrice = undefined;
-var maxPrice = undefined;
+var minCost = undefined;
+var maxCost  = undefined;
 var textoBusqueda = undefined;
 
 function ordenDePrecios(criteria, array){
     let result = [];
-    if (criteria === ORDER_ASC_BY_PRICE)
+    if (criteria === ORDER_ASC_BY_COST)
     {
         result = array.sort(function(a, b) {
             if ( a.cost < b.cost ){ return -1; }
             if ( a.cost > b.cost ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_DESC_BY_PRICE){
+    }else if (criteria === ORDER_DESC_BY_COST){
         result = array.sort(function(a, b) {
             if ( a.cost > b.cost ){ return -1; }
             if ( a.cost < b.cost ){ return 1; }
@@ -98,16 +98,16 @@ function ordenarYMostrarPrecios(sortCriteria, productsArray){
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
-            ordenarYMostrarPrecios(ORDER_ASC_BY_PRICE, resultObj.data);
+            ordenarYMostrarPrecios(ORDER_ASC_BY_COST, resultObj.data);
         }
     });
 
     document.getElementById("sortAsc").addEventListener("click", function(){
-        ordenarYMostrarPrecios(ORDER_ASC_BY_PRICE);
+        ordenarYMostrarPrecios(ORDER_ASC_BY_COST);
     });
 
     document.getElementById("sortDesc").addEventListener("click", function(){
-        ordenarYMostrarPrecios(ORDER_DESC_BY_PRICE);
+        ordenarYMostrarPrecios(ORDER_DESC_BY_COST);
     });
 
     document.getElementById("sortByCount").addEventListener("click", function(){
@@ -118,8 +118,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
 
-        minPrice = undefined;
-        maxPrice = undefined;
+        minCost  = undefined;
+        maxCost  = undefined;
 
         showCategoriesList();
     });
@@ -127,21 +127,21 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
         //de productos por categoría.
-        minPrice = document.getElementById("rangeFilterCountMin").value;
-        maxPrice = document.getElementById("rangeFilterCountMax").value;
+        minCost  = document.getElementById("rangeFilterCountMin").value;
+        maxCost  = document.getElementById("rangeFilterCountMax").value;
 
-        if ((minPrice != undefined) && (minPrice != "") && (parseInt(minPrice)) >= 0){
-            minPrice = parseInt(minPrice);
+        if ((minCost  != undefined) && (minCost  != "") && (parseInt(minCost )) >= 0){
+            minCost  = parseInt(minCost );
         }
         else{
-            minPrice = undefined;
+            minCost  = undefined;
         }
 
-        if ((maxPrice != undefined) && (maxPrice != "") && (parseInt(maxPrice)) >= 0){
-            maxPrice = parseInt(maxPrice);
+        if ((maxCost  != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0){
+            maxCost  = parseInt(maxCost);
         }
         else{
-            maxPrice = undefined;
+            maxCost = undefined;
         }
 
         showCategoriesList();
