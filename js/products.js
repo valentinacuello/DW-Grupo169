@@ -6,7 +6,10 @@ function showCategoriesList(){
         let category = currentProductsArray[i];
 
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(category.cost) >= minPrice)) &&
-            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(category.cost) <= maxPrice))){
+            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(category.cost) <= maxPrice)) &&
+            ((textoBusqueda == undefined) || (category.name.includes(textoBusqueda)) || (category.description.includes(textoBusqueda)))
+            )
+            {
 
             htmlContentToAppend += `
             <div class="list-group-item list-group-item-action">
@@ -44,6 +47,7 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minPrice = undefined;
 var maxPrice = undefined;
+var textoBusqueda = undefined;
 
 function ordenDePrecios(criteria, array){
     let result = [];
@@ -141,5 +145,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
 
         showCategoriesList();
+    });
+
+    document.getElementById("buscador").addEventListener("keyup", function(){
+       textoBusqueda = document.getElementById("buscador").value;
+       
+       
+       showCategoriesList();
     });
 });
