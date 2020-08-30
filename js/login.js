@@ -13,6 +13,6 @@ function submitLogin(event){
 
     var usuario = document.getElementById("inputUsuario").value;
     localStorage.setItem('nombre', usuario);
-    document.getElementById("nombreUsuario").innerHTML = usuario;
+    document.getElementById("nombreUsuario").innerHTML = document.getElementById("nombreUsuario").innerHTML + usuario;
 }
 

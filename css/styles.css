@@ -161,3 +161,16 @@ a.custom-card:hover {
 .contenedor-usuario a{
   text-decoration: none;
 }
+
+.nombre-usuario{
+  display: flex;
+  align-items: center;
+}
+
+.contenedor-usuario i{
+  margin-right: 10px;
+}
+
+.barra-navegacion{
+  align-items: center;
+}

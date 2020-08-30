@@ -48,14 +48,25 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("pantalla-login").classList.remove("login-hidden");    //Esta linea muestra el login 
   } else {
     if(localStorage.getItem('nombre') != null){
-      document.getElementById("nombreUsuario").innerHTML = localStorage.getItem('nombre');
+      document.getElementById("nombreUsuario").innerHTML = document.getElementById("nombreUsuario").innerHTML + localStorage.getItem('nombre');
     }
   }
 
+ 
 });
 
 function ocultarLogin(){
   document.getElementById("pantalla-login").classList.add("login-hidden");
 }
+
+
+function cerrarSesion(event){
+  localStorage.clear('logeado'); 
+  localStorage.clear('nombre'); 
+  window.location.href="index.html"
+}
+
+
+
 
 

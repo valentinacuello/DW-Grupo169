@@ -7,7 +7,7 @@ function showCategoriesList(){
 
         if (((minCost  == undefined) || (minCost  != undefined && parseInt(category.cost) >= minCost )) &&
             ((maxCost  == undefined) || (maxCost  != undefined && parseInt(category.cost) <= maxCost )) &&
-            ((textoBusqueda == undefined) || (category.name.includes(textoBusqueda)) || (category.description.includes(textoBusqueda)))
+            ((textoBusqueda == undefined) || (category.name.toLowerCase().includes(textoBusqueda.toLowerCase())) || (category.description.toLowerCase().includes(textoBusqueda.toLowerCase())))
             )
             {
 
