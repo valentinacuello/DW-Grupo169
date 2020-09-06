@@ -174,3 +174,37 @@ a.custom-card:hover {
 .barra-navegacion{
   align-items: center;
 }
+
+.cuadro-busqueda{
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 500px;
+  border-radius: 5px;
+  background-color:#fafafa;
+  padding: 10px;
+}
+
+.cuadro-busqueda a{
+  color: black;
+}
+
+
+.buscador-btn{
+  float: right;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cuadro-busqueda .buscador-txt{
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 16px;
+  color: black;  
+  border-bottom: none;  
+  width: 500px;
+}

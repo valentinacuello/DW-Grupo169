@@ -13,26 +13,107 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/product-info.css">
 </head>
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <div class="container d-flex flex-column flex-md-row justify-content-between barra-navegacion">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <!--Buscador-->
+      <div class="cuadro-busqueda">
+        <input class="buscador-txt" type="search" placeholder="Buscar productos, marcas, etc..." id="buscadorInicio">
+        <a class="buscador-btn" href="#">
+          <i class="fas fa-search icono"></i>
+        </a>          
+      </div>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+      <!---Dropdown-->
+      <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="py-2 d-none d-md-inline-block contenedor-usuario">
+                <a href="my-profile.html">           
+                    <span class="nombre-usuario" id="nombreUsuario"><i class="fas fa-user-circle icono-usuario"></i></span>
+                </a> 
+            </div>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 54px, 0px);">
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="cart.html">Compras</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" id="salir" onclick="cerrarSesion(event)" href="#">Salir</a>
+        </div>
+      </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <!--INFO PRODUCTOS-->
+  <main role="main" class="contenedor-padre">
+    <div class="container mt-5 contenedor-info">
+      <!--contenedor texto-->
+      <div class="contenedor-txt">
+        <div class="texto-producto">
+          <div class="nombre-Producto">
+              <h2 id="productName"></h2>
+              <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <a href="#opiniones"> 4 opiniones</a>
+              </div>
+          </div>
+          
+          <hr class="my-3">
+
+          <div class="precio-producto">
+            <h5><b>Precio</b></h5>
+              <h3 id="productCost"></h3>
+          </div>          
+      
+          <hr class="my-3">
+      
+          <div class="descripcion-producto">
+              <h5><b>Descripcion</b></h5>
+              <p id="productDescription"></p>
+          </div>    
+           
+          <hr class="my-3">
+      
+          <div class="cantidad-productos">
+            <h5><b>Cantidad de unidades vendidas</b></h5>
+              <p id="productCount"></p>
+          </div>
+      </div>
+    </div>  
+    <!--contenedor imagenes-->
+    <div class="contenedor-img">
+      <div class="galeria-fotos">
+        <div  id="productImagesGallery"></div>
+      </div>
+      <p><i>Imágenes meramente ilustrativas</i></p>
+    </div>  
+        <hr class="my-3">        
     </div>
-  </div>
+  </main>
+
+      <!--Reviews-->
+  <section>
+    <div class="review-container">
+      <dev class="review-content">
+       <dev> <h5 id="opiniones"> Opiniones:</h5> </dev>
+       <dev class="user-review" id="userName date time score"></dev>
+      </dev>
+    </div>
+  </section>
+
+  <!--ACÁ TERMINA INFO PRODUCTOS-->
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -50,6 +131,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>

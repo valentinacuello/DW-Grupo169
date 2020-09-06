@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
   }
 
- 
+
 });
 
 function ocultarLogin(){
@@ -65,8 +65,4 @@ function cerrarSesion(event){
   localStorage.clear('nombre'); 
   window.location.href="index.html"
 }
-
-
-
-
 
