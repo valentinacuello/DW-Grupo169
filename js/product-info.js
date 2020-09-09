@@ -1,4 +1,7 @@
-var product = {};
+var product = {};   // esto se inicializa como un ojbeto vacío
+var reviewProducts = [];   // esto se inicializa como un array vacio (que en este caso adentro tiene muchos objetos)
+
+
 
 function showImagesGallery(array) {
     //Declaro aquí la primer variable//
@@ -6,8 +9,8 @@ function showImagesGallery(array) {
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
             `;
-    //Declaro aquí dos variables, una para insertar las imagenes, la otra es para agregar las barritas del carrusel//
 
+    //Declaro aquí dos variables, una para insertar las imagenes, la otra es para agregar las barritas del carrusel//
     let productImgs = "";
     let carouselIndicators = "";
 
@@ -18,26 +21,26 @@ function showImagesGallery(array) {
         let imageSrc = array[i];
         let imgActive = "";
 
-        //un if, donde la variable de la imagen es igualada a " active" antes mencionado //
-
+        //este if lo que hace es que a la primera imagen le agrega el string " active" que es requerido por el carousel //
         if(i==0){
             imgActive = " active"
         }
+
         //acá agrego código HTML a la variable productImgs que a su vez concatena las variables para agregar la imagen activa y el resto de la galeria //
         productImgs += `
                 <div class="carousel-item`+ imgActive +` ">
                     <img src="` + imageSrc + `" class="d-block w-100" alt="...">
                 </div>
         `
-        //acá agrego código HTML a la variable carousel Indicators  //
+        //acá agrego código HTML a la variable carousel Indicators y a su vez concateno con el iterador i y también concateno la variable imgActive //
         carouselIndicators +=  `<li data-target="#carouselExampleIndicators" data-slide-to="`+ i +`" class="`+ imgActive +`"></li>`
     
     }
+
+
     htmlContentToAppend += carouselIndicators + `                
             </ol>
-        <div class="carousel-inner">` + productImgs;
-    
-    htmlContentToAppend += 
+        <div class="carousel-inner">` + productImgs +
         `
         </div>
 
@@ -53,6 +56,43 @@ function showImagesGallery(array) {
         `
     document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
 }
+
+
+
+
+
+function showReviews(array){
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){
+        let review = array[i]; 
+        let score = "";
+
+        for(let i = 1; i <= review.score; i++){
+            score += `<span class="fa fa-star checked"></span>`
+        }
+
+        for(let i = review.score + 1; i <= 5; i++){
+            score += `<span class="fa fa-star not-checked"></span>`
+        }
+
+        htmlContentToAppend += `
+        <div class="review-content">
+          <h5 id="userName">`+ review.user +`</h5>
+          <p id="reviewData">`+ review.dateTime +`</p>
+          <div class="rating">`+ score +`</div>
+          <hr class="separador">
+          <p id="reviewDescription">`+ review.description +`</p>
+        </div> 
+        `
+        document.getElementById("reviewItems").innerHTML = htmlContentToAppend;
+    }
+
+   
+
+
+}
+
 
 
 
@@ -78,6 +118,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+        }
+    });
+
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok"){
+            reviews = resultObj.data;
+
+
+            showReviews(reviews);
+
         }
     });
 
