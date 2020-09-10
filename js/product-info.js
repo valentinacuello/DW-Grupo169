@@ -60,6 +60,39 @@ function showImagesGallery(array) {
 
 
 
+function cantidadOpiniones(array){
+    let htmlContentToAppend = "";
+    let cantidadOpiniones = array.length;
+    let cantidadEstrellas = 0;
+
+    for(let i = 0; i < array.length; i++){
+        cantidadEstrellas += array[i].score;        
+    }
+
+    let promedioEstrellas = Math.round(cantidadEstrellas / cantidadOpiniones)
+    let score = "";
+
+        for(let i = 1; i <= promedioEstrellas; i++){
+            score += `<span class="fa fa-star checked"></span>`
+        }
+
+        for(let i = promedioEstrellas + 1; i <= 5; i++){
+            score += `<span class="fa fa-star not-checked"></span>`
+        }
+
+
+
+    htmlContentToAppend += score +`<a href="#opiniones" id="cantidadOpiniones">`+ cantidadOpiniones +` opiniones</a> `
+    document.getElementById("insertarCantidadOpiniones").innerHTML = htmlContentToAppend;
+
+}
+
+
+
+
+
+
+
 
 function showReviews(array){
     let htmlContentToAppend = "";
@@ -127,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
             showReviews(reviews);
+            cantidadOpiniones(reviews);
 
         }
     });
