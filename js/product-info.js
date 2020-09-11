@@ -87,11 +87,22 @@ function cantidadOpiniones(array){
 
 }
 
+//Modal formulario para agregar nueva opinion
+
+document.getElementById("agregarNuevaOpinion").addEventListener("click", function(){
+    document.querySelector(".fondo-modal").style.display = "flex";
+});
+
+document.querySelector(".cancelar-boton").addEventListener("click", function(){
+    document.querySelector(".fondo-modal").style.display = "none";
+});
 
 
+//Funcion para agregar nuevos comentarios al json
 
+function nuevaOpinion(){
 
-
+}
 
 
 function showReviews(array){
@@ -166,3 +177,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 });
+

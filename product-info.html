@@ -100,26 +100,41 @@
     <div class="container review-container">
       <div class="container-header">
         <h4>Opiniones sobre el producto</h4>
-        <h4 id="agregarNuevaOpinion" type="button">Agregar una nueva opinion</h4>
+        <h4 id="agregarNuevaOpinion" type="button">Agregar una nueva opinión</h4>
       </div>
       
       <div class="review-items" id="reviewItems">
         
       </div>
     </div>
-  </section>
 
 <!--Modal formulario nuevo comentario-->  
-  <div class="fondo-modal">
-    <div class="contenido-modal">
-      <div class="user"></div>
-      <div class="dateTime"></div>
-      <div class="starRating"></div>
-      <form action="">
-        <textarea name="" id="areaTexto" cols="30" rows="10" placeholder="Escribí acá tu opinión"></textarea>
-      </form>
+    <div class="fondo-modal">
+      <div class="contenido-modal">
+        <div class="user-container">
+          <div class="user" id="nombreUsuario"></div>
+          <div class="starRating">
+            <span class="fa fa-star not-checked"></span>
+            <span class="fa fa-star not-checked"></span>
+            <span class="fa fa-star not-checked"></span>
+            <span class="fa fa-star not-checked"></span>
+            <span class="fa fa-star not-checked"></span>
+          </div>
+        </div>
+
+        <form action="" class="form-opinion">
+          <textarea name="" id="areaTexto" cols="30" rows="3" placeholder="Escribí acá tu opinión"></textarea>
+
+          <div class="botones-container">
+            <button class="cancelar-boton" id="botonCancelar">Cancelar</button>
+            <button class="publicar-boton" id="botonPublicar">Publicar</button>                   
+          </div>
+
+        </form>
+      </div>
     </div>
-  </div>
+  </section>
+
 
 <!--ACÁ TERMINA INFO PRODUCTOS-->
 
