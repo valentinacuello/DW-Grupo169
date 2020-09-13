@@ -14,6 +14,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/product-info.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -52,6 +53,7 @@
   </nav>
 
   <!--INFO PRODUCTOS-->
+
   <main role="main" class="contenedor-padre">
     <div class="container mt-5 contenedor-info">
       <!--contenedor texto-->
@@ -75,7 +77,7 @@
               <h5><b>Descripcion</b></h5>
               <p id="productDescription"></p>
           </div>    
-           
+          
           <hr class="my-3">
       
           <div class="cantidad-productos">
@@ -93,10 +95,10 @@
     </div>  
         <hr class="my-3">        
     </div>
-  </main>
+  </main> 
 
-      <!--Reviews-->
-  <section id="opiniones">
+        <!--Reviews-->
+  <section class="seccion2" id="opiniones">
     <div class="container review-container">
       <div class="container-header">
         <h4>Opiniones sobre el producto</h4>
@@ -108,22 +110,22 @@
       </div>
     </div>
 
-<!--Modal formulario nuevo comentario-->  
+  <!--Modal formulario nuevo comentario-->  
     <div class="fondo-modal">
       <div class="contenido-modal">
         <div class="user-container">
-          <div class="user" id="nombreUsuario"></div>
+          <div class="user" id="nombreUsuarioModal"></div>
           <div class="starRating">
-            <span class="fa fa-star not-checked"></span>
-            <span class="fa fa-star not-checked"></span>
-            <span class="fa fa-star not-checked"></span>
-            <span class="fa fa-star not-checked"></span>
-            <span class="fa fa-star not-checked"></span>
+              <input type="radio" name="rating"  id="star5" value="5"><label for="star5"></label>
+              <input type="radio" name="rating"  id="star4" value="4"><label for="star4"></label>
+              <input type="radio" name="rating"  id="star3" value="3"><label for="star3"></label>
+              <input type="radio" name="rating"  id="star2" value="2"><label for="star2"></label>
+              <input type="radio" name="rating"  id="star1" value="1"><label for="star1"></label>
           </div>
         </div>
 
         <form action="" class="form-opinion">
-          <textarea name="" id="areaTexto" cols="30" rows="3" placeholder="Escribí acá tu opinión"></textarea>
+          <textarea class="area-texto" id="areaTexto" cols="30" rows="3" placeholder="Escribí acá tu opinión"></textarea>
 
           <div class="botones-container">
             <button class="cancelar-boton" id="botonCancelar">Cancelar</button>
