@@ -1,11 +1,8 @@
 var product = {};   // esto se inicializa como un ojbeto vacío
 var reviewProducts = [];   // esto se inicializa como un array vacio (que en este caso adentro tiene muchos objetos)
 
-/*
 var newReview = [];
-var today = new Date();
-var obtenerFecha = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-var hour = hour.getHours() + ':' + hour.getMinutes() + ':' + hour.getSeconds();*/
+
 
 
 function showImagesGallery(array) {
@@ -101,20 +98,25 @@ document.querySelector(".cancelar-boton").addEventListener("click", function(){
     document.querySelector(".fondo-modal").style.display = "none";
 });
 
+function publicarOpinion(){
+    var today = new Date();
+    var obtenerFecha = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ';
+    var hour = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
+
+    var fechaYHora = obtenerFecha + hour;
+
+    var user = localStorage.getItem('nombre');
+    var description =  
+
+    console.log
+
+
+}
 
 
 //User en el modal
-document.getElementById("nombreUsuarioModal").innerHTML = document.getElementById("nombreUsuarioModal").innerHTML + localStorage.getItem('nombre');
+document.getElementById("nombreUsuarioModal").innerHTML = localStorage.getItem('nombre');
 
-
-
-
-//Funcion para agregar nuevos comentarios al json
-
-function addNewReview(){
-
-        
-}
 
 
 function showReviews(array){
