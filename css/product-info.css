@@ -274,23 +274,23 @@ section{
 }
 
 /*STAR RATING*/
-.starRating {
+.star-rating {
     display: flex;
     flex-direction: row-reverse;
     margin-right: 460px;
 }
 
-.starRating input[type="radio"]{
+.star-rating input[type="radio"]{
     display: none;
 }
 
-.starRating label {
+.star-rating label {
     cursor: pointer;
     width: 20px;
     height: 20px;
 }
 
-.starRating label::before{
+.star-rating label::before{
     content: '\f005';
     font-family: fontAwesome;
     font-size: 20px;
@@ -300,7 +300,7 @@ section{
 }
 
 
-.starRating label::after{
+.star-rating label::after{
     content: '\f005';
     font-family: fontAwesome;
     font-size: 20px;
@@ -313,7 +313,7 @@ section{
 }
 
 
-.starRating label:hover::after,
-.starRating input:checked ~ label::after{
+.star-rating label:hover::after,
+.star-rating input:checked ~ label::after{
     opacity: 1;
 }

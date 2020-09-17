@@ -1,7 +1,7 @@
 var product = {};   // esto se inicializa como un ojbeto vacío
 var reviewProducts = [];   // esto se inicializa como un array vacio (que en este caso adentro tiene muchos objetos)
 
-var newReview = [];
+var newReviews = [];
 
 
 
@@ -61,7 +61,6 @@ function showImagesGallery(array) {
 
 
 
-
 function cantidadOpiniones(array){
     let htmlContentToAppend = "";
     let cantidadOpiniones = array.length;
@@ -98,20 +97,25 @@ document.querySelector(".cancelar-boton").addEventListener("click", function(){
     document.querySelector(".fondo-modal").style.display = "none";
 });
 
-function publicarOpinion(){
+
+
+function nuevaOpinion(){
     var today = new Date();
     var obtenerFecha = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ';
     var hour = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
 
     var fechaYHora = obtenerFecha + hour;
 
-    var user = localStorage.getItem('nombre');
-    var description =  
-
-    console.log
 
 
+    var userName = localStorage.getItem('nombre');
+    var scoreStar = document.getElementById("starRating").value;
+    var dateAndTime = fechaYHora;
+    var descriptionRevew =  document.getElementById("areaTexto").value;
 }
+
+
+
 
 
 //User en el modal
