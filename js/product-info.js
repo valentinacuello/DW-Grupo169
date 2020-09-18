@@ -1,5 +1,6 @@
 var product = {};   // esto se inicializa como un ojbeto vacío
 var reviewProducts = [];   // esto se inicializa como un array vacio (que en este caso adentro tiene muchos objetos)
+var relatedProducts = [];
 
 var newReviews = [];
 
@@ -88,40 +89,6 @@ function cantidadOpiniones(array){
 
 }
 
-//Modal formulario para agregar nueva opinion
-document.getElementById("agregarNuevaOpinion").addEventListener("click", function(){
-    document.querySelector(".fondo-modal").style.display = "flex";
-});
-
-document.querySelector(".cancelar-boton").addEventListener("click", function(){
-    document.querySelector(".fondo-modal").style.display = "none";
-});
-
-
-
-function nuevaOpinion(){
-    var today = new Date();
-    var obtenerFecha = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ';
-    var hour = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
-
-    var fechaYHora = obtenerFecha + hour;
-
-
-
-    var userName = localStorage.getItem('nombre');
-    var scoreStar = document.getElementById("starRating").value;
-    var dateAndTime = fechaYHora;
-    var descriptionRevew =  document.getElementById("areaTexto").value;
-}
-
-
-
-
-
-//User en el modal
-document.getElementById("nombreUsuarioModal").innerHTML = localStorage.getItem('nombre');
-
-
 
 function showReviews(array){
     let htmlContentToAppend = "";
@@ -149,12 +116,65 @@ function showReviews(array){
         `
         document.getElementById("reviewItems").innerHTML = htmlContentToAppend;
     }
-
-   
-
-
 }
 
+
+
+function nuevaOpinion(){
+    var today = new Date();
+    var obtenerFecha = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ';
+    var hour = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
+
+    var fechaYHora = obtenerFecha + hour;
+
+
+
+    /*var userName = localStorage.getItem('nombre');
+    var scoreStar = document.getElementById("starRating").value;
+    var dateAndTime = fechaYHora;
+    var descriptionRevew =  document.getElementById("areaTexto").value;*/
+}
+
+
+
+//Modal formulario para agregar nueva opinion
+document.getElementById("agregarNuevaOpinion").addEventListener("click", function(){
+    document.querySelector(".fondo-modal").style.display = "flex";
+});
+
+document.querySelector(".cancelar-boton").addEventListener("click", function(){
+    document.querySelector(".fondo-modal").style.display = "none";
+});
+
+
+
+
+//User en el modal
+document.getElementById("nombreUsuarioModal").innerHTML = localStorage.getItem('nombre');
+
+
+
+//PRODUCTOS RELACIONADOS//
+
+function showRelatedProducts(array) {
+
+    let htmlContentToAppend = "";
+  
+    for (let i = 0; i < array.length; i++) {
+      let relatedProducts = array[i];
+  
+      htmlContentToAppend += `
+      <div class="card card-producto" style="width: 13rem;">
+        <img class="img-fluid img-thumbnail" src="img/car` + relatedProducts + `.jpg" alt="">
+        <div class="card-body">
+        <a href="product-info.html" class="btn boton-color">Ver producto</a>
+        </div>
+    </div>
+    `
+        document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+    }
+  }       
+     
 
 
 
@@ -169,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let productCountHTML = document.getElementById("productCount");
             let productImagesHTML = document.getElementById("productImagesGallery");
             let productCostHTML = document.getElementById("productCost");
+            
 
 
 
@@ -180,6 +201,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+
+            //Muestro los productos relacionados
+            showRelatedProducts(product.relatedProducts)
         }
     });
 
@@ -193,6 +217,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         }
     });
-
 });
 
