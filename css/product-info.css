@@ -178,6 +178,7 @@ section{
     background-color: rgba(146, 146, 146, 0.7);
     position: fixed;
     top: 0;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
