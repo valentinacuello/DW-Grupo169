@@ -120,20 +120,6 @@ function showReviews(array){
 
 
 
-function nuevaOpinion(){
-    var today = new Date();
-    var obtenerFecha = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ';
-    var hour = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
-
-    var fechaYHora = obtenerFecha + hour;
-
-
-
-    /*var userName = localStorage.getItem('nombre');
-    var scoreStar = document.getElementById("starRating").value;
-    var dateAndTime = fechaYHora;
-    var descriptionRevew =  document.getElementById("areaTexto").value;*/
-}
 
 
 
