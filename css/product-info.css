@@ -343,7 +343,7 @@ section{
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin: 20px 75px;
+    margin: 0px 75px;
 }
 
 .productos-relacionados h3{
