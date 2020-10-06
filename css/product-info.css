@@ -329,6 +329,14 @@ section{
 
 /*Related products*/
 
+section{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
 .productos-relacionados h3{
     font-size: 20px;
     font-weight: 700;
@@ -336,10 +344,11 @@ section{
 }
 
 .contenedor-productos-relacionados {
-    width: 72%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0px 20px;
+    padding: 20px;
+    margin: 0px 75px;
 }
 
 .productos-relacionados h3{
