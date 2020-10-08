@@ -76,38 +76,20 @@
 <section class="seccion-carrito">
   <div class="carrito-container">
     <div class="titulo-carrito">
-      <h1>Carrito de compras</h1>
+      <h1>Carrito de Compras</h1>
+      <h3>Encontrá aquí los detalles de tu compra</h3>
     </div>
-    <table class="table">
+    <table class="table carrito-tabla">
       <thead>
         <tr>
-          <th> Producto </th>
+          <th id="producto"> Producto </th>
           <th> Precio </th>
           <th> Cantidad </th>
           <th> Subtotal </th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div class="imagen-art" id="imgArt">
-            </div>
-            <div class="nombre-art">
-              <p id="articleName"></p>
-            </div>
-          </td>
-
-          <td id="articleCost"></td>
-
-          <td>
-            <div class="input-cantidad">
-              <input type="number" name="" id="" value="1">
-            </div>
-          </td>
-
-          <td id="subTotal"></td>
-
-        </tr>
+      <tbody id="articulosDelCarrito">
+        
       </tbody>
     </table>
   </div>
