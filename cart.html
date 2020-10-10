@@ -12,6 +12,8 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 
   <style>
     .bd-placeholder-img {
@@ -73,27 +75,161 @@
   
 
 <!--CARRITO-->
-<section class="seccion-carrito">
-  <div class="carrito-container">
-    <div class="titulo-carrito">
-      <h1>Carrito de Compras</h1>
-      <h3>Encontrá aquí los detalles de tu compra</h3>
+  <section class="seccion-carrito">
+    <div class="carrito-container">
+      <div class="titulo-carrito">
+        <h1>Carrito de Compras</h1>
+        <h3>Encontrá aquí los detalles de tu compra</h3>
+      </div>
+      <table class="carrito-tabla">
+        <thead class="tabla-head">
+          <tr>
+            <th id="producto"> Producto </th>
+            <th> Precio </th>
+            <th> Cantidad </th>
+            <th> Subtotal </th>
+          </tr>
+        </thead>
+        <tbody id="articulosDelCarrito">        
+        </tbody>
+      </table>
+      
+      <div class="cuadro-subtotal">
+
+        <table>
+            <tr class="tr-total">
+                <td id="subtotalTitulo">
+                  <p>Subtotal</p>
+                </td>
+
+                <td id="subtotalNumero">
+                  <p></p>
+                </td>
+            </tr>
+            <tr>
+              <!--<td id="total">
+                <p>Total</p>
+              </td>
+
+              <td id="totalNumero">
+                <p></p>
+              </td>-->          
+            </tr>
+        </table>
+
+      </div>
     </div>
-    <table class="table carrito-tabla">
-      <thead>
-        <tr>
-          <th id="producto"> Producto </th>
-          <th> Precio </th>
-          <th> Cantidad </th>
-          <th> Subtotal </th>
-        </tr>
-      </thead>
-      <tbody id="articulosDelCarrito">
-        
-      </tbody>
-    </table>
-  </div>
-</section>
+  </section>
+
+    <!--TIPO DE ENVÍO-->
+  <section class="seccion-envio"> 
+    <div class="envio-container">
+      <div class="envio-content">
+        <div class="envio-txt">
+          <h3>Tipo de envío</h3>
+          <div class="input-envio form-check">
+            <input type="radio" name="envio">
+            <label for=""><span class="span">Premium:</span> 2 a 5 días (15%)</label>
+            <br>
+            <input type="radio" name="envio">
+            <label for=""><span class="span">Express: </span> 5 a 8 días (7%)</label>
+            <br>
+            <input type="radio" name="envio">
+            <label for=""><span class="span">Estándar:</span> 12 a 15 días (5%)</label>
+          </div>
+
+          <div class="datos-envio">
+            <h3>Datos del envío</h3>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="">Calle</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Número</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="">Esquina</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="">Elegir Departamento</label>
+                  <select class="custom-select">
+                    <option value="1">Artigas</option>
+                    <option value="2">Canelones</option>
+                    <option value="3">Cerro Largo</option>
+                    <option value="4">Colonia</option>
+                    <option value="2">Durazno</option>
+                    <option value="3">Flores</option>
+                    <option value="1">Florida</option>
+                    <option value="2">Lavalleja</option>
+                    <option value="3">Maldonado</option>
+                    <option value="1">Montevideo</option>
+                    <option value="2">Paysandú</option>
+                    <option value="3">Río Negro</option>
+                    <option value="1">Rivera</option>
+                    <option value="2">Rocha</option>
+                    <option value="3">Salto</option>
+                    <option value="1">San José</option>
+                    <option value="2">Soriano</option>
+                    <option value="3">Tacuarembó</option>
+                    <option value="3">Treinta y Tres</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="costo-total">
+    <div class="costo-total-container">
+      <div class="costo-content">
+        <h3>Costo total</h3>
+        <table class="tabla-costo-total">
+          <tbody>
+            <tr>
+              <td>
+                <p>Subtotal</p>
+              </td>
+              <td>
+                <p class="cifra-costo">4500</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <p>Costo del envío</p>
+              </td>
+              <td>
+                <p class="cifra-costo">$39099</p>
+              </td>
+            </tr>
+            
+            <tr id="total-bg">
+              <td>
+                <p id="costo-total">Total</p>
+              </td>
+              <td>
+                <p id="cifra-costo">$39000</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="finalizar-boton">
+          <input type="button" value="Finalizar Compra" id="finalizarBtn">
+        </div>
+      </div>
+    </div>
+
+  </section>
 
 
   <div id="spinner-wrapper">
