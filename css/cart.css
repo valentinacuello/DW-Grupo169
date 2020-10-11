@@ -12,7 +12,7 @@
 }
 
 .carrito-container{
-    width: 50%;
+    width: 55%;
 }
 
 .carrito-container h1{
@@ -119,6 +119,15 @@ input[type="number"]{
     text-align: center;
 }
 
+.subTotal{
+    font-weight: 600;
+
+}
+
+.subTotal::before{
+    content: "$ ";
+}
+
 
 
 .cuadro-subtotal{
@@ -159,6 +168,7 @@ input[type="number"]{
 
 #subtotalNumero{
     text-align: end;
+    font-weight: 600;
 }
 
 .iconos-extras{
@@ -198,7 +208,7 @@ input[type="number"]{
 }
 
 .envio-container{
-    width: 50%;
+    width: 55%;
 }
 
 .envio-txt h3{
@@ -237,7 +247,7 @@ input[type="number"]{
 }
 
 .costo-total-container{
-    width: 50%;
+    width: 55%;
 }
 
 .costo-content h3{
@@ -306,5 +316,9 @@ input[type="number"]{
     background-color: #FF43AA;
     color: #ffffff;
     border: none;
+
+}
+
+.txt-costo{
 
 }
