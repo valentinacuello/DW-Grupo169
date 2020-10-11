@@ -73,9 +73,10 @@ function carritoDeCompras(itemCarrito){
 };
 
 
+//El método querySelectorAll() de un Element devuelve una NodeList estática (no viva) que representa una lista de elementos del documento que coinciden con el grupo de selectores indicados
 function subtotalItems(){
   let subTotalesHtml = document.querySelectorAll(".subTotal");
-  let subTotalFinal = 0;
+  let subTotalFinal = 0; //eL SUBTOTAL arranca en 0
 
   for(let i = 0; i < itemCarrito.articles.length; i++){
     let conversion = 1;
@@ -87,8 +88,9 @@ function subtotalItems(){
     //aca creo una propiedad nueva que se llama subtotal que es igual a unitcost * el count
     itemCarrito.articles[i].subTotal = itemCarrito.articles[i].unitCost *  itemCarrito.articles[i].count * conversion;
 
-    subTotalesHtml[i].innerHTML =  itemCarrito.articles[i].subTotal;
-    subTotalFinal += itemCarrito.articles[i].subTotal;
+    subTotalesHtml[i].innerHTML =  itemCarrito.articles[i].subTotal; //inserto en el html la propiedad nueva "subtotal"
+
+    subTotalFinal += itemCarrito.articles[i].subTotal; //este es el subtotal final, que por cada iteración va sumando el subtotal de cada elemento
   }
 
   document.getElementById("subtotalNumero").innerHTML = "$ " + subTotalFinal;
