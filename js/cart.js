@@ -6,70 +6,109 @@ var itemCarrito = {};
 
 
 
-function carritoDeCompras(itemCarrito){
+function carritoDeCompras(){
   let htmlContentToAppend = "";
   
-
-  for(let i = 0; i < itemCarrito.articles.length; i++){
+  if (itemCarrito.articles.length === 0){
     htmlContentToAppend += `
-        <tr class="tr-carrito">
-          <div class="fila-articulos">
-            <td class="td-articulo">
-              <div class="iconos-extras">
-                <i class="fas fa-times  trash"></i></i></i><i class="far fa-heart fav"></i>              
-              </div>
-                <div class="imagen-art card" id="imgArt">
-                <img src="` + itemCarrito.articles[i].src + `" class="imagenProducto">
-                </div>
-                <div class="nombre-art">
-                  <p id="itemName">
-                  `+ itemCarrito.articles[i].name +`
-                  </p>
-                </div>
-            </td>
-
-            <td>
-            <p id="precioUnitario">
-            `+ itemCarrito.articles[i].currency + " " + itemCarrito.articles[i].unitCost +`
-            </p>
-            </td>
-
-              <td>
-                <div class="input-cantidad">
-                  <input type="number" name="`+ i +`" id="inputCantidad" value="`+ itemCarrito.articles[i].count +`" class="inputCantidad" min="0">
-                </div>  
-              </td>
-
-              <td>
-              <p class="subTotal"></p>
-              </td>
-          </div>          
-        </tr>
-    
+    <tr id="trNoHay">
+      <td id="tdNoHay">
+        <div class="no-hay-items">
+            <i class="fas fa-shopping-cart cart"></i>
+            <p id="noHayElementos">No hay elementos en el carrito</p>
+            <a href="index.html" id="btnHome">Volver al home</a>
+        </div>
+      </td>
+    </tr>
     `
-  }
+    document.getElementById("articulosDelCarrito").innerHTML = htmlContentToAppend;
 
-  document.getElementById("articulosDelCarrito").innerHTML = htmlContentToAppend;
+    subtotalItems(); //aca esta funcion se ejecuta pero como no hay nada, no pone nada, lo deja en 0
 
-  //este for each esta para que todos los inputs tengan un listener que se ejecuta cuando hay un cambio de calor. el "input" es el tipo de evento que se ejecuta cuando se cambia de valor de un input 
-  document.querySelectorAll(".inputCantidad").forEach(item =>{
-    item.addEventListener("input", function(e){
-
-
-      //aca cree una variable para saber qué elemento va modificar el input el usuario y el e.target trae el nodo del DOM que se está modificando por el usuario y lo agrego así: <input type="number" name="`+ i +`" la "i" es el index del elemento
-
-      let indexElemento = e.target.getAttribute("name");
-
-      //acá a la variable itemCarrito.articles en los corchetes lee paso la variable que indica el index del elemento  
-      itemCarrito.articles[indexElemento].count = e.target.value;
-
-      subtotalItems();
+  } else {
   
+    for(let i = 0; i < itemCarrito.articles.length; i++){
+      htmlContentToAppend += `
+          <tr class="tr-carrito" id="trCarrito" name="`+ i +`">
+            <div class="fila-articulos">
+              <td class="td-articulo">
+                <div class="iconos-extras">
+                  <i class="fas fa-times trash" id="trash"></i>
+                  <i class="far fa-heart fav"></i>              
+                </div>
+                  <div class="imagen-art card" id="imgArt">
+                  <img src="` + itemCarrito.articles[i].src + `" class="imagenProducto">
+                  </div>
+                  <div class="nombre-art">
+                    <p id="itemName">
+                    `+ itemCarrito.articles[i].name +`
+                    </p>
+                  </div>
+              </td>
+
+              <td>
+              <p id="precioUnitario">
+              `+ itemCarrito.articles[i].currency + " " + itemCarrito.articles[i].unitCost +`
+              </p>
+              </td>
+
+                <td>
+                  <div class="input-cantidad">
+                    <input type="number" name="`+ i +`" id="inputCantidad" value="`+ itemCarrito.articles[i].count +`" class="inputCantidad" min="0">
+                  </div>  
+                </td>
+
+                <td>
+                <p class="subTotal"></p>
+                </td>
+            </div>          
+          </tr>
+      
+      `
+    }
+
+    document.getElementById("articulosDelCarrito").innerHTML = htmlContentToAppend;
+
+    
+    //este for each esta para que todos los inputs tengan un listener que se ejecuta cuando hay un cambio de valor. el "input" es el tipo de evento que se ejecuta cuando se cambia de valor de un input 
+    document.querySelectorAll(".inputCantidad").forEach(item =>{
+      item.addEventListener("input", function(e){
+
+
+        //aca cree una variable para saber qué elemento va modificar el input el usuario y el e.target trae el nodo del DOM que se está modificando por el usuario y lo agrego así: <input type="number" name="`+ i +`" la "i" es el index del elemento
+
+        let indexElemento = e.target.getAttribute("name");
+
+        //acá a la variable itemCarrito.articles en los corchetes lee paso la variable que indica el index del elemento  
+        itemCarrito.articles[indexElemento].count = e.target.value;
+
+        subtotalItems();
+    
+      });
     });
-  });
 
-  subtotalItems();
+    //el item representa el elemento del arreglo
+    document.querySelectorAll(".trash").forEach(function(item){
+      item.addEventListener("click", function(e){
 
+
+        //el closest lo que hace es buscar el elemento mas cercano a él mismo, en este caso la etiqueta tr 
+        //la e es de evento
+        let indexElemento = e.target.closest("tr").getAttribute("name");
+        console.log(indexElemento);
+
+        //El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos
+
+        //el indexElemento es el index, es la posicion, del elemento que quiero borrar, con el 1 le indico la cantidad que quiero borrar 
+        itemCarrito.articles.splice(indexElemento, 1);
+
+        carritoDeCompras();
+
+      });
+    });
+
+    subtotalItems();
+  }; //aca cierro el if
 };
 
 
@@ -105,14 +144,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
       itemCarrito = resultObj.data;
       
-      carritoDeCompras(itemCarrito);
+      carritoDeCompras();
 
     }
 
 
   });
-
-
-
+  
 });
 

@@ -183,8 +183,8 @@ input[type="number"]{
 }
 
 .trash{
-    padding-left: 1px;
     padding-bottom: 9px;
+    cursor: pointer;
 }
 
 .iconos-extras .trash:hover{
@@ -319,6 +319,142 @@ input[type="number"]{
 
 }
 
-.txt-costo{
 
+/*---------------CARRITO VACÍO-------------------*/
+
+#tdNoHay{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#noHayElementos{
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 0 !important;
+    padding-left: 10px;
+}
+
+.cart{
+    font-size: 20px;
+}
+
+#trNoHay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200%;
+}
+
+.no-hay-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+
+}
+
+#btnHome{
+    background-color: #fd63b8;
+    width: 60%;
+    height: 40px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#btnHome:hover{
+    background-color: #FF43AA;
+}
+
+
+/*-------------METODO DE PAGO--------------------*/
+
+#formaDePago{
+    background-color:  #e9e9e9;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    background-color: #e9e9e9;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-left: 15px;
+}
+
+#seleccionarBtn{
+    background-color: #fd63b8;
+    border: none;
+    height: 30px;
+    width: 30%;
+    font-weight: 500;
+    color: #ffffff;
+    border-radius: 2px;
+}
+
+#seleccionarBtn:hover{
+    background-color: #FF43AA;
+}
+
+
+/*--------------MODAL METODO DE PAGO------------------*/
+
+.seccion-modal{
+    width: 100%;
+    height: 100%;
+}
+
+.modal-container{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(146, 146, 146, 0.7);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*display: none;*/
+}
+
+.modal-content{
+    width: 550px !important;
+    height: 400px;
+    position: relative;
+    padding: 0 20px;
+}
+
+.modal-head{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 15px 10px;
+    height: 50px;
+}
+
+#cerrarBtn{
+    transform: rotate(45deg);
+    font-size: 40px;
+    color: #949494;
+    cursor: pointer;
+}
+
+#cerrarBtn:hover{
+    color: #494949;
+}
+
+.modal-head h4{
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
 }
