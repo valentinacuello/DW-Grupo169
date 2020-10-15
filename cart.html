@@ -227,42 +227,75 @@
           <h5 id="formaDePago">
             Forma de pago
           </h5>
-          <p>No has seleccionado ninguno</p>
-          <button type="button" id="seleccionarBtn">Seleccionar</button>
+          <div class="grupo-txt-btn">
+            <p id="metodoSeleccionado">No has seleccionado ningún método de pago</p>
+            <button type="button" id="seleccionarBtn">Seleccionar</button>
+          </div>
         </div>
         <div class="finalizar-boton">
           <input type="button" value="Finalizar Compra" id="finalizarBtn">
         </div>        
       </div>
     </div>
-
-    <!--Modal método de pago-->
-    <div class="modal-container">
-      <div class="modal-content">
-        <div id="cerrarBtn"> + </div>
-        <div class="modal-txt">
-          <h4>Forma de Pago</h4>
-          <hr>
-          <input type="radio">
-          <label>Tarjeta de crédito</label>
-          <label> Número de tarjeta </label>
-          <input type="text">
-          <label> Código de seguridad</label>
-          <input type="text">
-          <br>
-          <label> Vencimiento MM/AA</label>
-          <input type="text">
-          <hr>
-          <label>Transferencia bancaria</label>
-          <input type="text">
-          <hr>
-            <button class="publicar-boton" id="botonPublicar" type="button" onclick="publicarOpinion()">Cerrar</button>  
-        </div>
-      </div>
-    </div>
-
-
   </section>
+
+
+  <!--Modal método de pago-->
+<section class="seccion-modal">
+  <div class="modal-container">
+      <div class="modal-content">
+          <div class="formas-de-pago-content">
+              <div class="modal-head">
+                  <div id="cerrarBtn" class="cerrar-btn"> + </div>
+                  <h4>Forma de Pago</h4>
+              </div>
+              <hr>
+
+              <div class="modal-txt">
+
+                <div class="input-radio" >
+                  <input type="radio" name="radio" id="credito">
+                  <label id="labelHead">Tarjeta de crédito</label>
+                </div>
+
+                  <div class="datos-tarjeta">
+                    <div class="form-fila">
+                      <label for="numero"> Número de tarjeta </label>                            
+                      <input type="text" id="numero inputPadding" class="form-control-sm">
+                    </div>
+
+                    <div class="form-fila">
+                      <label for="seguridad"> Código de seguridad</label>
+                      <input type="text" id="seguridad inputPadding" class="form-control-sm">
+                    </div>
+
+                    <div class="form-fila">
+                      <label for="mmaa"> Vencimiento MM/AA</label>
+                      <input type="text" id="mmaa inputPadding" class="form-control-sm">
+                    </div>
+
+                  </div>
+                  <hr>
+
+                  <div class="input-radio">
+                    <input type="radio" name="radio" id="transferencia">
+                    <label id="labelHead">Transferencia Bancaria</label>
+                  </div>
+
+                  <div class="form-fila">
+                    <label for="numero" id="inputRadio">Número de cuenta</label>
+                    <input type="text" id="numero" class="form-control-sm">
+                  </div>
+
+                  <hr>
+
+                  <button class="aceptar-boton" id="aceptarBtn" type="button" disabled onclick="metodoSeleccionado()">Aceptar</button>  
+
+              </div>                                        
+          </div>
+      </div>
+  </div>
+</section>
 
 
 

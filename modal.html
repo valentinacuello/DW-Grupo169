@@ -47,24 +47,36 @@
                         <h4>Forma de Pago</h4>
                     </div>
                     <hr>
-                    <div class="modal-txt">                      
-                        <input type="radio">
-                        <label>Tarjeta de crédito</label>
+                    <div class="modal-txt">
+                      <div class="input-radio" >
+                        <input type="radio" name="radio">
+                        <label id="labelHead">Tarjeta de crédito</label>
+                      </div>
                         <div class="datos-tarjeta">
-                          <label> Número de tarjeta </label>                          
-                          <label> Código de seguridad</label>  
-                          <br>
-                          <input type="text"> 
-                          <input type="text">
-                          <label> Vencimiento MM/AA</label>
-                          <br>
-                          <input type="text">
+                          <div class="form-fila">
+                            <label for="numero"> Número de tarjeta </label>                            
+                            <input type="text" id="numero inputPadding">
+                          </div>
+                          <div class="form-fila">
+                            <label for="seguridad"> Código de seguridad</label>
+                            <input type="text" id="seguridad inputPadding">
+                          </div> 
+                          <div class="form-fila">
+                            <label for="mmaa"> Vencimiento MM/AA</label>
+                            <input type="text" id="mmaa inputPadding">
+                          </div>
                         </div>
                         <hr>
-                        <label>Transferencia bancaria</label>
-                        <input type="text">
+                        <div class="input-radio">
+                          <input type="radio" name="radio">
+                          <label id="labelHead">Transferencia Bancaria</label>
+                        </div>
+                        <div class="form-fila">
+                          <label for="numero" id="inputRadio">Número de cuenta</label>
+                          <input type="text" id="numero">
+                        </div>
                         <hr>
-                        <button class="publicar-boton" id="botonPublicar" type="button" onclick="publicarOpinion()">Cerrar</button>  
+                        <button class="publicar-boton" id="aceptarBtn" type="button" onclick="publicarOpinion()">Aceptar</button>  
                     </div>                                        
                 </div>
             </div>

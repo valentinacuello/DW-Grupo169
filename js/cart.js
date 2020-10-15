@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 
 var itemCarrito = {};
+var metodoPago = "";
 
 
 
@@ -12,7 +13,7 @@ function carritoDeCompras(){
   if (itemCarrito.articles.length === 0){
     htmlContentToAppend += `
     <tr id="trNoHay">
-      <td id="tdNoHay">
+      <td id="tdNoHay" colspan="4">
         <div class="no-hay-items">
             <i class="fas fa-shopping-cart cart"></i>
             <p id="noHayElementos">No hay elementos en el carrito</p>
@@ -76,7 +77,6 @@ function carritoDeCompras(){
 
 
         //aca cree una variable para saber qué elemento va modificar el input el usuario y el e.target trae el nodo del DOM que se está modificando por el usuario y lo agrego así: <input type="number" name="`+ i +`" la "i" es el index del elemento
-
         let indexElemento = e.target.getAttribute("name");
 
         //acá a la variable itemCarrito.articles en los corchetes lee paso la variable que indica el index del elemento  
@@ -92,14 +92,12 @@ function carritoDeCompras(){
       item.addEventListener("click", function(e){
 
 
-        //el closest lo que hace es buscar el elemento mas cercano a él mismo, en este caso la etiqueta tr 
-        //la e es de evento
+        //el closest lo que hace es buscar el elemento mas cercano a él mismo(en este caso .trash), en este caso la etiqueta tr 
+        //la e es de evento. el e.target indica cuál fue clickeado y envió el evento
         let indexElemento = e.target.closest("tr").getAttribute("name");
-        console.log(indexElemento);
 
         //El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos
-
-        //el indexElemento es el index, es la posicion, del elemento que quiero borrar, con el 1 le indico la cantidad que quiero borrar 
+        //el indexElemento es el index, es la posicion del elemento que quiero borrar, con el 1 le indico la cantidad que quiero borrar 
         itemCarrito.articles.splice(indexElemento, 1);
 
         carritoDeCompras();
@@ -137,6 +135,21 @@ function subtotalItems(){
 
 
 
+function metodoSeleccionado(){
+
+  let textoMostrar = "Has seleccionado el método de pago: ";
+
+  if(metodoPago === "transferencia"){
+    textoMostrar += "<b>Transferencia Bancaria</b>";
+  } else {
+    textoMostrar += "<b>Tarjeta de Crédito</b>";
+  }
+  
+  document.getElementById("metodoSeleccionado").innerHTML = textoMostrar;
+  document.querySelector(".modal-container").style.display = "none";
+};
+
+
 
 document.addEventListener("DOMContentLoaded", function(e){
   getJSONData(CART_INFO_DOS_URL).then(function (resultObj){
@@ -147,9 +160,26 @@ document.addEventListener("DOMContentLoaded", function(e){
       carritoDeCompras();
 
     }
-
-
   });
-  
+
+  //MODAL METODO DE PAGO
+  //Mostrar Modal
+  document.getElementById("seleccionarBtn").addEventListener("click", function(){
+    document.querySelector(".modal-container").style.display = "flex";
+  });
+
+  //Cerrar Modal
+  document.querySelector(".cerrar-btn").addEventListener("click", function(){
+    document.querySelector(".modal-container").style.display = "none";
+  });
+
+  document.querySelectorAll('input[name="radio"]').forEach(function(item){
+    item.addEventListener("click", function(){
+      metodoPago = document.querySelector('input[name="radio"]:checked').id;
+
+
+      document.getElementById("aceptarBtn").disabled = false;    
+    });  
+  });
 });
 

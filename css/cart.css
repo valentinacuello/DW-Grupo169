@@ -325,10 +325,7 @@ input[type="number"]{
 #tdNoHay{
     width: 100%;
     height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+    padding: 65px;
 }
 
 #noHayElementos{
@@ -343,23 +340,23 @@ input[type="number"]{
 }
 
 #trNoHay{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200%;
+    width: 100%;
 }
+
+
 
 .no-hay-items{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 10px;
+    margin-top: 10px;
 
 }
 
 #btnHome{
     background-color: #fd63b8;
-    width: 60%;
+    width: 30%;
     height: 40px;
     border-radius: 2px;
     text-decoration: none;
@@ -391,11 +388,21 @@ input[type="number"]{
     padding-left: 15px;
 }
 
+.metodo-de-pago p{
+    padding: 20px 10px 10px ;
+    font-style: italic;
+}
+
+.grupo-txt-btn{
+    width: 100%;
+    display: inline;
+}
+
 #seleccionarBtn{
     background-color: #fd63b8;
     border: none;
     height: 30px;
-    width: 30%;
+    width: 20%;
     font-weight: 500;
     color: #ffffff;
     border-radius: 2px;
@@ -423,14 +430,15 @@ input[type="number"]{
     display: flex;
     justify-content: center;
     align-items: center;
-    /*display: none;*/
+    display: none;
 }
 
 .modal-content{
-    width: 550px !important;
-    height: 400px;
+    width: 430px !important;
+    height: 500px;
     position: relative;
     padding: 0 20px;
+    margin: 0 5px;
 }
 
 .modal-head{
@@ -440,6 +448,7 @@ input[type="number"]{
     align-items: center;
     padding: 15px 10px;
     height: 50px;
+    margin-top: 10px;
 }
 
 #cerrarBtn{
@@ -458,3 +467,42 @@ input[type="number"]{
     font-size: 20px;
     font-weight: 600;
 }
+
+.datos-tarjeta{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-fila{
+    width: 50%;
+    margin-top: 10px;
+}
+
+.form-control-sm{
+    border: 1px solid #494949;
+}
+
+#labelHead{
+    font-weight: 600;
+}
+
+input[type="radio"]{
+    cursor: pointer;
+}
+
+
+#aceptarBtn{
+    background-color: #FF43AA;
+    color: #ffffff;
+    border: none;
+    width: 40%;
+    height: 30px;
+    border-radius: 3px;
+    position: absolute;
+    right: 20px;
+}
+
+#aceptarBtn:disabled{
+    background-color: #949494
+}
+
