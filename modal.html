@@ -37,50 +37,23 @@
     <body>
 
 
-<!--Modal método de pago-->
-<section class="seccion-modal">
-        <div class="modal-container">
-            <div class="modal-content">
-                <div class="formas-de-pago-content">
-                    <div class="modal-head">
-                        <div id="cerrarBtn"> + </div>
-                        <h4>Forma de Pago</h4>
-                    </div>
-                    <hr>
-                    <div class="modal-txt">
-                      <div class="input-radio" >
-                        <input type="radio" name="radio">
-                        <label id="labelHead">Tarjeta de crédito</label>
-                      </div>
-                        <div class="datos-tarjeta">
-                          <div class="form-fila">
-                            <label for="numero"> Número de tarjeta </label>                            
-                            <input type="text" id="numero inputPadding">
-                          </div>
-                          <div class="form-fila">
-                            <label for="seguridad"> Código de seguridad</label>
-                            <input type="text" id="seguridad inputPadding">
-                          </div> 
-                          <div class="form-fila">
-                            <label for="mmaa"> Vencimiento MM/AA</label>
-                            <input type="text" id="mmaa inputPadding">
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="input-radio">
-                          <input type="radio" name="radio">
-                          <label id="labelHead">Transferencia Bancaria</label>
-                        </div>
-                        <div class="form-fila">
-                          <label for="numero" id="inputRadio">Número de cuenta</label>
-                          <input type="text" id="numero">
-                        </div>
-                        <hr>
-                        <button class="publicar-boton" id="aceptarBtn" type="button" onclick="publicarOpinion()">Aceptar</button>  
-                    </div>                                        
-                </div>
+<!--éxito-->
+<section class="seccion-modal-exito">
+
+        <div class="modal-container-exito">
+          <div class="modal-content-exito">
+            <div class="icono-exito">
+              <i class="far fa-check-circle"></i>
             </div>
+            <div class="exito-titulo">
+              <h5>¡Compra realizada con éxito!</h5>
+            </div>
+            <div class="volver-al-home-btn">
+              <button type="button" id="homeBtn">Volver al home</button>
+            </div>
+          </div>
         </div>
+            
 </section>
 
         </html>

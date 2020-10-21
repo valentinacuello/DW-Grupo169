@@ -4,7 +4,10 @@
 
 var itemCarrito = {};
 var metodoPago = "";
-
+var subTotal = document.getElementById("subtotalNumero");
+var totalEnvio = 0;
+var calle = document.getElementById("calle");
+var numero = document.getElementById("numero");
 
 
 function carritoDeCompras(){
@@ -25,6 +28,7 @@ function carritoDeCompras(){
     document.getElementById("articulosDelCarrito").innerHTML = htmlContentToAppend;
 
     subtotalItems(); //aca esta funcion se ejecuta pero como no hay nada, no pone nada, lo deja en 0
+    totalFinal();
 
   } else {
   
@@ -83,6 +87,8 @@ function carritoDeCompras(){
         itemCarrito.articles[indexElemento].count = e.target.value;
 
         subtotalItems();
+        envioSeleccionado();
+        totalFinal();
     
       });
     });
@@ -101,11 +107,12 @@ function carritoDeCompras(){
         itemCarrito.articles.splice(indexElemento, 1);
 
         carritoDeCompras();
-
       });
     });
 
     subtotalItems();
+    envioSeleccionado();
+    totalFinal();
   }; //aca cierro el if
 };
 
@@ -130,8 +137,11 @@ function subtotalItems(){
     subTotalFinal += itemCarrito.articles[i].subTotal; //este es el subtotal final, que por cada iteración va sumando el subtotal de cada elemento
   }
 
+  subTotal = subTotalFinal;
   document.getElementById("subtotalNumero").innerHTML = "$ " + subTotalFinal;
+  document.getElementById("cifraSubTotal").innerHTML = "$ " + subTotalFinal;
 };
+
 
 
 
@@ -151,6 +161,56 @@ function metodoSeleccionado(){
 
 
 
+function envioSeleccionado(){  
+
+  if(document.querySelector('input[name="envio"]:checked') !== null){
+
+    let envioSeleccionado = document.querySelector('input[name="envio"]:checked').id;
+
+    switch(envioSeleccionado){
+      case "premium": 
+        totalEnvio = subTotal * 0.15;
+        break;
+      case "express": 
+        totalEnvio = subTotal * 0.07;
+        break;
+      case "estandar": 
+        totalEnvio = subTotal * 0.05;
+        break;
+    }
+
+  } else {
+    totalEnvio = 0;
+  }  
+ 
+  document.getElementById("costoEnvio").innerHTML = "$ " + totalEnvio;
+};
+
+//La declaración switch evalúa una expresión, comparando el valor de esa expresión con una instancia case, y ejecuta declaraciones asociadas a ese case, así como las declaraciones en los case que siguen.
+
+function totalFinal(){
+
+  let total = subTotal + totalEnvio;
+
+  document.getElementById("cifraTotal").innerHTML = "$ " + total;
+
+}
+
+
+//Función validar campos
+
+/*  function finalizarCompra(){
+
+  if(nombre.value === !null){
+    
+  }
+
+  return false;
+}  */
+
+
+
+
 document.addEventListener("DOMContentLoaded", function(e){
   getJSONData(CART_INFO_DOS_URL).then(function (resultObj){
     if (resultObj.status === "ok"){
@@ -158,8 +218,16 @@ document.addEventListener("DOMContentLoaded", function(e){
       itemCarrito = resultObj.data;
       
       carritoDeCompras();
-
     }
+  });
+
+  document.querySelectorAll("inpRadio").forEach(function(item){
+    item.addEventListener("input", function(e){
+
+
+      let indexElemento = e.target.closest("div").getAttribute("name"); 
+
+    });
   });
 
   //MODAL METODO DE PAGO
@@ -178,8 +246,32 @@ document.addEventListener("DOMContentLoaded", function(e){
       metodoPago = document.querySelector('input[name="radio"]:checked').id;
 
 
-      document.getElementById("aceptarBtn").disabled = false;    
+      document.getElementById("aceptarBtn").disabled = false;    /*The disabled property sets or returns whether a drop-down list should be disabled, or not.
+      A disabled element is unusable and un-clickable. Disabled elements are usually rendered in gray by default in browsers.
+      true - The drop-down list is disabled
+      false - Default. The drop-down list is not disabled*/
     });  
   });
-});
 
+
+  //Seleccionar envío
+  document.querySelectorAll('input[name="envio"]').forEach(function(item){
+    item.addEventListener("click", function(){
+      
+      envioSeleccionado();
+      totalFinal();
+
+    });
+  });
+
+  //Modal compra realizada
+  document.getElementById("finalizarBtn").addEventListener("click", function(){
+    document.querySelector(".modal-container-exito").style.display = "flex";
+  });
+
+    //Cerrar Modal
+    document.getElementById("homeBtn").addEventListener("click", function(){
+      location.href="index.html"
+    });
+
+});
