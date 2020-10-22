@@ -265,9 +265,20 @@ document.addEventListener("DOMContentLoaded", function(e){
   });
 
   //Modal compra realizada
-  document.getElementById("finalizarBtn").addEventListener("click", function(){
-    document.querySelector(".modal-container-exito").style.display = "flex";
+  let form = document.getElementById('datosEnvio');
+    form.addEventListener("submit", function(event){
+      event.preventDefault();
+      event.stopPropagation();
+
+      form.classList.add('was-validated');
+
+      if (form.checkValidity() === true) {
+        document.querySelector(".modal-container-exito").style.display = "flex";
+      }
+
   });
+
+  //El método HTMLSelectElement.checkValidity() comprueba si el elemento tiene restricciones y si las cumple. Si el elemento no cumple sus restricciones, el navegador lanza un evento cancelable invalid al momento y luego devuelve false.
 
     //Cerrar Modal
     document.getElementById("homeBtn").addEventListener("click", function(){

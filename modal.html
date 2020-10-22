@@ -37,27 +37,34 @@
     <body>
 
 
-<!--éxito-->
-<section class="seccion-modal-exito">
-
-        <div class="modal-container-exito">
-          <div class="modal-content-exito">
-            <div class="icono-exito">
-              <i class="far fa-check-circle"></i>
-            </div>
-            <div class="exito-titulo">
-              <h5>¡Compra realizada con éxito!</h5>
-            </div>
-            <div class="volver-al-home-btn">
-              <button type="button" id="homeBtn">Volver al home</button>
-            </div>
+      <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="5000">
+            <img src="img/header2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-interval="5000">
+            <img src="img/header1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-interval="5000">
+            <img src="img/cover_back_2.png" class="d-block w-100" alt="...">
           </div>
         </div>
-            
-</section>
+        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
 
-        </html>
-
+       
           
-        
-    </body>
+      <script src="js/jquery-3.4.1.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/init.js"></script>
+      <script src="js/product-info.js"></script>
+    </body> 
+    
+    </html>
