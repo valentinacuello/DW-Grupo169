@@ -1,6 +1,7 @@
 var product = {};   // esto se inicializa como un ojbeto vacío
 var reviewProducts = [];   // esto se inicializa como un array vacio (que en este caso adentro tiene muchos objetos)
 var relatedProducts = [];
+var reviews = [];
 
 var newReviews = [];
 
@@ -196,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok"){
             reviews = resultObj.data;
+
 
 
             showReviews(reviews);

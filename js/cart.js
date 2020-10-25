@@ -6,8 +6,7 @@ var itemCarrito = {};
 var metodoPago = "";
 var subTotal = document.getElementById("subtotalNumero");
 var totalEnvio = 0;
-var calle = document.getElementById("calle");
-var numero = document.getElementById("numero");
+
 
 
 function carritoDeCompras(){
@@ -197,18 +196,6 @@ function totalFinal(){
 }
 
 
-//Función validar campos
-
-/*  function finalizarCompra(){
-
-  if(nombre.value === !null){
-    
-  }
-
-  return false;
-}  */
-
-
 
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -245,9 +232,36 @@ document.addEventListener("DOMContentLoaded", function(e){
     item.addEventListener("click", function(){
       metodoPago = document.querySelector('input[name="radio"]:checked').id;
 
+      let inputNumeroTarjeta = document.getElementById("numeroTarjeta");
+      let inputCodigoSeguidad = document.getElementById("seguridad");
+      let inputVencimiento = document.getElementById("mmaa");
+      let inputNumeroCuenta = document.getElementById("numeroCuenta");
 
-      document.getElementById("aceptarBtn").disabled = false;    /*The disabled property sets or returns whether a drop-down list should be disabled, or not.
-      A disabled element is unusable and un-clickable. Disabled elements are usually rendered in gray by default in browsers.
+      if(metodoPago === "transferencia"){
+        inputNumeroTarjeta.required = false;
+        inputCodigoSeguidad.required = false;
+        inputVencimiento.required = false;
+        inputNumeroCuenta.required = true;
+
+        inputNumeroTarjeta.disabled = true;
+        inputCodigoSeguidad.disabled = true;
+        inputVencimiento.disabled = true;
+        inputNumeroCuenta.disabled = false;
+
+      } else {
+        inputNumeroTarjeta.required = true;
+        inputCodigoSeguidad.required = true;
+        inputVencimiento.required = true;
+        inputNumeroCuenta.required = false;
+
+        inputNumeroTarjeta.disabled = false;
+        inputCodigoSeguidad.disabled = false;
+        inputVencimiento.disabled = false;
+        inputNumeroCuenta.disabled = true;
+      }
+
+      document.getElementById("aceptarBtn").disabled = false;
+      /*The disabled property sets or returns whether a drop-down list should be disabled, or not.  A disabled element is unusable and un-clickable. Disabled elements are usually rendered in gray by default in browsers.
       true - The drop-down list is disabled
       false - Default. The drop-down list is not disabled*/
     });  
@@ -275,8 +289,32 @@ document.addEventListener("DOMContentLoaded", function(e){
       if (form.checkValidity() === true) {
         document.querySelector(".modal-container-exito").style.display = "flex";
       }
-
   });
+
+
+  let formMetodoPago = document.getElementById("metodoPagoModal");
+
+    formMetodoPago.addEventListener("submit", function(event){
+      event.preventDefault();
+      event.stopPropagation();
+
+     
+
+      formMetodoPago.classList.add('was-validated');
+
+      if (formMetodoPago.checkValidity() === true){
+        let textoMostrar = "Has seleccionado el método de pago: ";
+
+        if(metodoPago === "transferencia"){
+          textoMostrar += "<b>Transferencia Bancaria</b>";
+        } else {
+          textoMostrar += "<b>Tarjeta de Crédito</b>";
+        }
+        
+        document.getElementById("metodoSeleccionado").innerHTML = textoMostrar;
+        document.querySelector(".modal-container").style.display = "none";
+      }
+});     
 
   //El método HTMLSelectElement.checkValidity() comprueba si el elemento tiene restricciones y si las cumple. Si el elemento no cumple sus restricciones, el navegador lanza un evento cancelable invalid al momento y luego devuelve false.
 
