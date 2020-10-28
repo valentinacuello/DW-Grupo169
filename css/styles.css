@@ -59,6 +59,14 @@ footer p {
   transition: ease-in-out color .15s;
 }
 
+.nav-bar{
+  background-color: #21186e;
+  display: flex;
+  align-items: center;
+  height: 75px;
+  box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
+}
+
 .light-text {
   color: white;
 }
