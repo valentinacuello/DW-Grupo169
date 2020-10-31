@@ -1,7 +1,14 @@
+:root{
+    --main-hoverBtn-color: #fd63b8;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body{
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-color: #eeeeee;
+    font-family: "Heebo";
 }
 
 .container-miperfil{
@@ -9,3 +16,86 @@ body{
     height: 100vh; 
 }   
     
+.miperfil-content{
+    width: 90%;
+    height: 100%;
+    margin-top: 80px;
+    display: flex;
+    position: relative;
+}
+
+.miperfil-sidebar{
+    width: 30%;
+    margin-left: 150px;
+}
+
+#miCuentaHeader{
+    position: relative;
+    bottom: 35px;
+}
+
+#miCuentaHeader h3{
+    font-size: 40px;
+}
+
+.miperfil-sidebar .secciones p{
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: #5e5e5efa;
+    cursor: pointer;
+}
+
+#seleccionado{
+    font-weight: 400;
+    width: 200px;
+    padding: 5px 5px 5px 20px;
+    height: 40px;
+    margin: 0px !important;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: var(--main-hoverBtn-color);
+
+}
+
+
+.miperfil-sidebar .secciones i{
+    margin-right: 10px;
+}
+
+.mis-datos-container{
+    background-color: #ffffff;
+    width: 100%;
+    height: 70%;
+    padding: 40px;
+    position: relative;
+    top: 53px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+
+.mis-datos-container h4{
+    margin-bottom: 30px;
+    font-size: 39px;
+}
+
+.mis-datos-container h6{
+    font-size: 20px;
+}
+
+.misdatos-form1{
+    width: 60%;
+    height: 100%;
+    position: relative;
+    left: 50%;
+    bottom: 40px;
+}
+
+.misdatos-form1 #paddingRight{
+    padding-right: 20px;
+}
+
+.misdatos-form1 .labelInp{
+    margin-bottom: 30px;
+}

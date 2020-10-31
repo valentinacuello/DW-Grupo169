@@ -35,7 +35,7 @@
   <link href="css/dropzone.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="my-profile.css" rel="stylesheet">
+    <link href="css/my-profile.css" rel="stylesheet">
 
 </head>
 
@@ -67,7 +67,7 @@
           </div>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
-          style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 54px, 0px);">
+          style="position: absolute; will-change: transform; top: 0px; Right: 0px; transform: translate3d(0px, 54px, 0px);">
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <div class="dropdown-divider"></div>
@@ -77,56 +77,74 @@
     </div>
   </nav>
 
+
+<main>
   <div class="container-miperfil">
     <div class="miperfil-content">
       <div class="miperfil-sidebar">
-        <h3>Mi cuenta</h3>
+        <div id="miCuentaHeader">
+          <h3>Mi cuenta</h3>
+        </div>
         <div class="secciones">
-          <p><i class="fas fa-search icono"></i> Mis datos</p>
+          <p id="seleccionado"><i class="fas fa-search icono"></i> Mis datos</p>
           <p><i class="fas fa-shopping-basket"></i> Mis compras</p>
           <p><i class="far fa-heart"></i> Mis favoritos</p>
         </div>
       </div>
       <div class="mis-datos-container">
         <h4>Mis datos</h4>
-        <p>Acá podrás modificar tus datos de usuario</p>
-        <div class="misdatos-form">
+        <h6>Datos personales</h6>
+        <hr>
+        <p>Acá podrás modificar tus datos personales</p>
+        <div class="misdatos-form1">
           <form>
             <div class="row">
-              <div class="col">
+              <div id="paddingRight" class="class="labelInp"">
                 <label for="">Primer nombre*</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control form-control-lg" required>
               </div>
-              <div class="col">
+              <div id="paddingRight"class="labelInp">
                 <label for="">Segundo nombre</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control form-control-lg" required>
               </div>
-              <div class="col">
+              <div id="paddingRight"class="labelInp">
                 <label for="">Primer apellido</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control form-control-lg" required>
               </div>
-              <div class="col">
+              <div id="paddingRight"class="labelInp">
                 <label for="">Segundo apellido</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control form-control-lg" required>
               </div>
-              <div class="col">
-                <label for="">Segundo nombre</label>
-                <input type="date" class="form-control" required>
+              <div id="paddingRight">
+                <label for="">Fecha de nacimiento</label>
+                <input type="date" class="form-control form-control-lg" required>
               </div>
-              <div class="col">
+              <div id="paddingRight">
                 <label for="">Teléfono</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="col">
-                <label for="">E-mail</label>
-                <input type="text" class="form-control" required>
-              </div>
+                <input type="text" class="form-control form-control-lg" required>
+              </div>              
             </div>
-          </form>
-        </div>
+          </form>          
       </div>
+      <div class="misdatos-form2">
+        <h6>Datos de la cuenta</h6>
+          <hr>
+          <div class="email-form">
+            <form action="">
+              <label for="">Nombre de usuario</label>
+              <input type="text" class="form-control" required> 
+              <label for="">E-mail</label>
+              <input type="text"  class="form-control" required>
+            </form>
+          </div>
+        </div>
+        <div class="btn-cambiar">
+          <button type="button">Cambiar mis datos</button>
+        </div>
+      </div>      
     </div>
   </div>
+</main>
 
 
 
