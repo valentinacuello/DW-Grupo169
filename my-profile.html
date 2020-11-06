@@ -118,35 +118,36 @@
                 <div class="row">
                   <div id="paddingRight" class="labelInp">
                     <label for="" class="labels-form">Primer nombre*</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" id="nombre1">
                   </div>
                   <div id="paddingRight"class="labelInp">
                     <label for="" class="labels-form">Segundo nombre</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" id="nombre2">
                   </div>
                   <div id="paddingRight"class="labelInp">
                     <label for="" class="labels-form">Primer apellido*</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" id="apellido1">
                   </div>
                   <div id="paddingRight"class="labelInp">
                     <label for="" class="labels-form">Segundo apellido</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" id="apellido2">
                   </div>
                   <div id="paddingRight">
                     <label for="" class="labels-form">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" required>
+                    <input type="date" class="form-control" id="cumpleaños">
                   </div>
                   <div id="breakline"></div>
                   <div id="paddingRight">
                     <label for="" class="labels-form">Teléfono</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" id="telefono">
                   </div>              
                 </div>
               </form>                                 
           </div>          
         </div>
-        <div >
-          <button type="button" id="btn-cambiar-datos">Cambiar</button>
+        <div>
+          <button type="button" id="btn-cambiar">Editar</button>
+          <button type="submit" id="btn-guardar">Guardar</button>
         </div> 
         <hr>
         <div class="mis-datos-container">
@@ -162,11 +163,11 @@
                     <form action="">
                       <div class="labelInp">
                         <label for="" class="labels-form">Nombre de usuario</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" id="nombreUsuario2">
                       </div> 
                       <div class="labelInp">
                         <label for="" class="labels-form">E-mail</label>
-                        <input type="text"  class="form-control" required>
+                        <input type="text"  class="form-control" id="email">
                       </div>
                     </form>
                   </div>
@@ -174,13 +175,31 @@
             </div>
           </div>
           <div>
-            <button type="button" id="btn-cambiar-datos-cuenta">Cambiar</button>
+            <button type="button" id="btn-cambiar-datos-cuenta">Editar</button>
+            <button type="button" id="btnGuardarDatosDuenta" )">Guardar</button>
           </div>
         </div>     
       </div>           
     </div>
   </div>
 </main>
+
+<!--guardado con éxito-->
+<section class="seccion-modal-exito">
+
+  <div class="modal-container-exito">
+    <div class="content-cambio-exitoso">
+      <div class="btn-cerrar" id="btnCerrarExito"> + </div>
+      <div class="content-icono">
+        <i class="far fa-check-circle"></i>
+      </div>
+      <div class="content-txt">
+        ¡Cambios realizados con éxito!
+      </div>
+    </div>
+  </div>
+      
+</section>
 
 
 
