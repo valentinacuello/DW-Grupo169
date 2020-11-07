@@ -66,7 +66,9 @@
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="py-2 d-none d-md-inline-block contenedor-usuario">
             <a href="my-profile.html">
-              <span class="nombre-usuario" id="nombreUsuario"><i class="fas fa-user-circle icono-usuario"></i></span>
+              <span class="nombre-usuario" id="nombreUsuario">
+                <i class="fas fa-user-circle icono-usuario"></i>
+              </span>
             </a>
           </div>
         </button>
@@ -118,28 +120,28 @@
                 <div class="row">
                   <div id="paddingRight" class="labelInp">
                     <label for="" class="labels-form">Primer nombre*</label>
-                    <input type="text" class="form-control" id="nombre1">
+                    <input type="text" class="form-control" id="nombre1" readonly>
                   </div>
                   <div id="paddingRight"class="labelInp">
                     <label for="" class="labels-form">Segundo nombre</label>
-                    <input type="text" class="form-control" id="nombre2">
+                    <input type="text" class="form-control" id="nombre2" readonly>
                   </div>
                   <div id="paddingRight"class="labelInp">
                     <label for="" class="labels-form">Primer apellido*</label>
-                    <input type="text" class="form-control" id="apellido1">
+                    <input type="text" class="form-control" id="apellido1" readonly>
                   </div>
                   <div id="paddingRight"class="labelInp">
                     <label for="" class="labels-form">Segundo apellido</label>
-                    <input type="text" class="form-control" id="apellido2">
+                    <input type="text" class="form-control" id="apellido2" readonly>
                   </div>
                   <div id="paddingRight">
                     <label for="" class="labels-form">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" id="cumpleaños">
+                    <input type="date" class="form-control" id="cumpleaños" readonly>
                   </div>
                   <div id="breakline"></div>
                   <div id="paddingRight">
                     <label for="" class="labels-form">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono">
+                    <input type="text" class="form-control" id="telefono" readonly>
                   </div>              
                 </div>
               </form>                                 
@@ -163,11 +165,11 @@
                     <form action="">
                       <div class="labelInp">
                         <label for="" class="labels-form">Nombre de usuario</label>
-                        <input type="text" class="form-control" id="nombreUsuario2">
+                        <input type="text" class="form-control" id="nombreUsuario2" readonly>
                       </div> 
                       <div class="labelInp">
                         <label for="" class="labels-form">E-mail</label>
-                        <input type="text"  class="form-control" id="email">
+                        <input type="text"  class="form-control" id="email" readonly>
                       </div>
                     </form>
                   </div>
@@ -195,6 +197,7 @@
       </div>
       <div class="content-txt">
         ¡Cambios realizados con éxito!
+        <p id="cambiosCuentaExito"></p>
       </div>
     </div>
   </div>

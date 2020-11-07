@@ -13,9 +13,9 @@ function showCategoriesList(){
 
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item-action">
-                <div class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action  mb-3">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-4">
                             <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                         </div>
                         <div class="col">
