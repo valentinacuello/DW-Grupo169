@@ -18,37 +18,60 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark nav-bar">
-    <div class="container d-flex flex-column flex-md-row justify-content-between barra-navegacion">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-
-      <!--Buscador-->
-      <div class="cuadro-busqueda">
-        <input class="buscador-txt" type="search" placeholder="Buscar productos, marcas, etc..." id="buscadorInicio">
-        <a class="buscador-btn" href="#">
-          <i class="fas fa-search icono"></i>
-        </a>          
-      </div>
-
-      
-      <!---Dropdown-->
-      <div class="dropdown">
-        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div class="py-2 d-none d-md-inline-block contenedor-usuario">
-                <a href="my-profile.html">           
-                    <span class="nombre-usuario" id="nombreUsuario"><i class="fas fa-user-circle icono-usuario"></i></span>
-                </a> 
-            </div>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 54px, 0px);">
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" href="cart.html">Mi carrito</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" id="salir" onclick="cerrarSesion(event)" href="#">Salir</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark barra-navegacion">      
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span i class="fas fa-bars menu-hamburguesa"></i></span>
+    </button>
+    <div class="navegador-container">
+      <div class="collapse navbar-collapse nav-contenido" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+        </ul>
+        <!--Buscador-->
+        <div class="cuadro-busqueda">
+          <input class="buscador-txt" type="search" placeholder="Buscar productos, marcas, etc..." id="buscadorInicio">
+          <a class="buscador-btn" href="#">
+            <i class="fas fa-search icono"></i>
+          </a>          
         </div>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 falso-dropdown">
+          <li class="nav-item">
+            <a class="nav-link" href="my-profile.html">Mi perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">Mi carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="salir" onclick="cerrarSesion(event)" href="#">Salir</a>
+          </li>
+        </ul>
+        <!---Dropdown-->
+        <div class="dropdown">
+          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="py-2 d-none d-md-inline-block contenedor-usuario">
+                  <a href="my-profile.html">           
+                      <span class="nombre-usuario" id="nombreUsuario"><i class="fas fa-user-circle icono-usuario"></i></span>
+                  </a> 
+              </div>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 54px, 0px);">
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id="salir" onclick="cerrarSesion(event)" href="#">Salir</a>
+          </div>
+        </div>          
       </div>
     </div>
   </nav>

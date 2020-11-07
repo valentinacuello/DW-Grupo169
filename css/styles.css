@@ -159,31 +159,10 @@ a.custom-card:hover {
   display: none;
   
 }
-.icono-usuario{
-  font-size: 21px;
-  color: white;
-  display: inline;
-}
 
-.nombre-usuario{
-  color: white;
-  display: inline;
-  margin-left: 4px;
-  text-decoration: none;
-}
 
-.contenedor-usuario a{
-  text-decoration: none;
-}
+/*---------------------------------------------------------------------------*/
 
-.nombre-usuario{
-  display: flex;
-  align-items: center;
-}
-
-.contenedor-usuario i{
-  margin-right: 10px;
-}
 
 .barra-navegacion{
   align-items: center;
@@ -196,7 +175,8 @@ a.custom-card:hover {
   width: 500px;
   border-radius: 5px;
   background-color:#fafafa;
-  padding: 10px;
+  padding: 10px;  
+  margin: 0px 15px 0px 15px;
 }
 
 @media (max-width: 600px){
@@ -204,10 +184,11 @@ a.custom-card:hover {
     display: flex;
     justify-content: center;
     height: 40px;
-    width: 250px;
+    width: 380px;
     border-radius: 5px;
     background-color:#fafafa;
-    padding: 10px;
+    padding: 10px;  
+    margin: 0px;
   }
 }
 
@@ -235,15 +216,96 @@ a.custom-card:hover {
   width: 500px;
 }
 
-
-.ul-container ul li a{
-  color: white !important;
+.barra-navegacion{
+  height: 75px;
 }
 
-.buscador-btn{
-  float: right;
-  width: 40px;
-  height: 40px;
+@media (max-width: 600px){
+  .barra-navegacion{
+    height: auto;
+  } 
+}
+
+.navegador-container ul li a{
+  color: #fff !important;
+  margin-left: 15px;
+}
+
+@media (max-width: 600px){
+  .navegador-container ul li a{
+    margin-left: 7px;
+  }
+}
+
+.nav-contenido{
+  margin-left: 10%;
+}
+
+@media (max-width: 600px){
+  .nav-contenido{
+    margin-left: 0px;
+  }
+}
+
+.menu-hamburguesa{
+  color: #fff;
+}
+
+.icono-usuario{
+  font-size: 21px;
+  color: white;
+  display: inline;
+}
+
+.nombre-usuario{
+  color: white;
+  display: inline;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+.contenedor-usuario a{
+  text-decoration: none;
+}
+
+.nombre-usuario{
   display: flex;
-  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-usuario i{
+  margin-right: 10px;
+}
+
+@media (max-width: 600px){
+  .contenedor-usuario{
+    width: auto;
+  }
+  .dropdown-toggle::before{
+    content: '\f2bd';
+    font-family:  'Font Awesome 5 Free';
+  }
+}
+
+.falso-dropdown{
+  display: none;
+}
+
+@media (max-width: 600px){
+  .padding-setting-precio{
+    text-align: left;
+  }
+  .padding-setting{
+    padding: 0px !important;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .falso-dropdown{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
