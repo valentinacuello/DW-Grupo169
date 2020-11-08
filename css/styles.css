@@ -166,6 +166,8 @@ a.custom-card:hover {
 
 .barra-navegacion{
   align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .cuadro-busqueda{
@@ -189,6 +191,11 @@ a.custom-card:hover {
     background-color:#fafafa;
     padding: 10px;  
     margin: 0px;
+  }
+
+  .barra-navegacion{
+    display: flex;
+    justify-content: left;
   }
 }
 
@@ -237,7 +244,7 @@ a.custom-card:hover {
   }
 }
 
-.nav-contenido{
+/* .nav-contenido{
   margin-left: 10%;
 }
 
@@ -245,7 +252,7 @@ a.custom-card:hover {
   .nav-contenido{
     margin-left: 0px;
   }
-}
+} */
 
 .menu-hamburguesa{
   color: #fff;
