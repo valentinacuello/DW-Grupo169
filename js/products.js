@@ -53,32 +53,42 @@ var textoBusqueda = undefined;
 
 function ordenDePrecios(criteria, array){
     let result = [];
-    if (criteria === ORDER_ASC_BY_COST)
-    {
-        result = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DESC_BY_COST){
-        result = array.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_BY_PROD_COUNT){
-        result = array.sort(function(a, b) {
-            let aCount = parseInt(a.soldCount);
-            let bCount = parseInt(b.soldCount);
-
-            if ( aCount > bCount ){ return -1; }
-            if ( aCount < bCount ){ return 1; }
-            return 0;
-        });
+    switch(criteria){
+        case ORDER_ASC_BY_COST:
+            result = array.sort(function(a, b) {
+                if ( a.cost < b.cost ){ return -1; } //si a es menor a b, comienza por el a: a, b - de menor a mayor, va creciendo
+                if ( a.cost > b.cost ){ return 1; }//si a es mayor a b, comienza por el b: b, a
+                return 0;
+            });
+            break;
+    
+        case ORDER_DESC_BY_COST:
+            result = array.sort(function(a, b) {
+                if ( a.cost > b.cost ){ return -1; }//si a es mayor a b, comienza por el a: a, b - de mayor a menor, va decreciendo
+                if ( a.cost < b.cost ){ return 1; }//si a es menor a b, comienza por el b
+                return 0;
+            });
+            break;
+            
+        case ORDER_BY_PROD_COUNT:
+            result = array.sort(function(a, b) {
+                let aCount = parseInt(a.soldCount);
+                let bCount = parseInt(b.soldCount);
+    
+                if ( aCount > bCount ){ return -1; }
+                if ( aCount < bCount ){ return 1; }
+                return 0;
+            });
+            break;
+    
     }
 
     return result;
 }
+
+/* //La declaración switch evalúa una expresión, comparando el valor de esa expresión con una instancia case, y
+ejecuta declaraciones asociadas a ese case, así como las declaraciones en los case que siguen. */
+
 
 
 function ordenarYMostrarPrecios(sortCriteria, productsArray){
