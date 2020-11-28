@@ -1,5 +1,5 @@
 
-function showCategoriesList(){
+function showProductsList(){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsArray.length; i++){
@@ -58,7 +58,7 @@ function ordenDePrecios(criteria, array){
             result = array.sort(function(a, b) {
                 if ( a.cost < b.cost ){ return -1; } //si a es menor a b, comienza por el a: a, b - de menor a mayor, va creciendo
                 if ( a.cost > b.cost ){ return 1; }//si a es mayor a b, comienza por el b: b, a
-                return 0;
+                return 0; //cuando los elementos son iguales
             });
             break;
     
@@ -66,7 +66,7 @@ function ordenDePrecios(criteria, array){
             result = array.sort(function(a, b) {
                 if ( a.cost > b.cost ){ return -1; }//si a es mayor a b, comienza por el a: a, b - de mayor a menor, va decreciendo
                 if ( a.cost < b.cost ){ return 1; }//si a es menor a b, comienza por el b
-                return 0;
+                return 0; //cuando los elementos son iguales
             });
             break;
             
@@ -77,7 +77,7 @@ function ordenDePrecios(criteria, array){
     
                 if ( aCount > bCount ){ return -1; }
                 if ( aCount < bCount ){ return 1; }
-                return 0;
+                return 0; //cuando los elementos son iguales
             });
             break;
     
@@ -86,6 +86,8 @@ function ordenDePrecios(criteria, array){
     return result;
 }
 
+/* El método sort() ordena los elementos de un arreglo (array) localmente y devuelve el arreglo ordenado. 
+ */
 /* //La declaración switch evalúa una expresión, comparando el valor de esa expresión con una instancia case, y
 ejecuta declaraciones asociadas a ese case, así como las declaraciones en los case que siguen. */
 
