@@ -103,7 +103,7 @@ function ordenarYMostrarPrecios(sortCriteria, productsArray){
     currentProductsArray = ordenDePrecios(currentSortCriteria, currentProductsArray);
 
     //Muestro las categorías ordenadas
-    showCategoriesList();
+    showProductsList();
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         minCost  = undefined;
         maxCost  = undefined;
 
-        showCategoriesList();
+        showProductsList();
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -158,13 +158,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             maxCost = undefined;
         }
 
-        showCategoriesList();
+        showProductsList();
     });
 
     document.getElementById("buscador").addEventListener("keyup", function(){
        textoBusqueda = document.getElementById("buscador").value;
        
        
-       showCategoriesList();
+       showProductsList();
     });
 });

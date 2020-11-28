@@ -74,12 +74,14 @@ function carritoDeCompras(){
     document.getElementById("articulosDelCarrito").innerHTML = htmlContentToAppend;
 
     
-    //este for each esta para que todos los inputs tengan un listener que se ejecuta cuando hay un cambio de valor. el "input" es el tipo de evento que se ejecuta cuando se cambia de valor de un input 
+	/* 	//este for each esta para que todos los inputs tengan un listener que se ejecuta cuando hay un cambio de valor. el "input" es el tipo de
+		evento que se ejecuta cuando se cambia de valor de un input  */
     document.querySelectorAll(".inputCantidad").forEach(item =>{
       item.addEventListener("input", function(e){
 
 
-        //aca cree una variable para saber qué elemento va modificar el input el usuario y el e.target trae el nodo del DOM que se está modificando por el usuario y lo agrego así: <input type="number" name="`+ i +`" la "i" es el index del elemento
+				/* //aca cree una variable para saber qué elemento va modificar el input el usuario y el e.target trae el nodo del DOM que se está
+				modificando por el usuario y lo agrego así: <input type="number" name="`+ i +`" la "i" es el index del elemento */
         let indexElemento = e.target.getAttribute("name");
 
         //acá a la variable itemCarrito.articles en los corchetes lee paso la variable que indica el index del elemento  
@@ -116,7 +118,8 @@ function carritoDeCompras(){
 };
 
 
-//El método querySelectorAll() de un Element devuelve una NodeList estática (no viva) que representa una lista de elementos del documento que coinciden con el grupo de selectores indicados
+/* //El método querySelectorAll() de un Element devuelve una NodeList estática (no viva) que representa una lista de elementos
+del documento que coinciden con el grupo de selectores indicados */
 function subtotalItems(){
   let subTotalesHtml = document.querySelectorAll(".subTotal");
   let subTotalFinal = 0; //eL SUBTOTAL arranca en 0
