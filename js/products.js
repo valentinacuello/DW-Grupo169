@@ -1,4 +1,15 @@
 
+const ORDER_ASC_BY_COST = "- Precio";
+const ORDER_DESC_BY_COST = "+ Precio";
+const ORDER_BY_PROD_COUNT = "Cant.";
+var currentProductsArray = [];
+var currentSortCriteria = undefined;
+var minCost = undefined;
+var maxCost  = undefined;
+var textoBusqueda = undefined;
+
+
+
 function showProductsList(){
 
     let htmlContentToAppend = "";
@@ -42,14 +53,6 @@ function showProductsList(){
 
 
 
-const ORDER_ASC_BY_COST = "- Precio";
-const ORDER_DESC_BY_COST = "+ Precio";
-const ORDER_BY_PROD_COUNT = "Cant.";
-var currentProductsArray = [];
-var currentSortCriteria = undefined;
-var minCost = undefined;
-var maxCost  = undefined;
-var textoBusqueda = undefined;
 
 function ordenDePrecios(criteria, array){
     let result = [];
@@ -131,9 +134,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
+        document.getElementById("buscador").value = "";
 
         minCost  = undefined;
         maxCost  = undefined;
+        textoBusqueda = undefined;
 
         showProductsList();
     });
@@ -163,8 +168,16 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById("buscador").addEventListener("keyup", function(){
        textoBusqueda = document.getElementById("buscador").value;
-       
+             
        
        showProductsList();
     });
+    document.getElementById("buscador").addEventListener("search", function(){
+        textoBusqueda = document.getElementById("buscador").value;
+              
+        if(!textoBusqueda){
+            showProductsList();
+        }
+        
+     });
 });
